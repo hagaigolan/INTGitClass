@@ -130,12 +130,16 @@
 	   			hitCounter++;
 	   			document.getElementById("scoreCount").innerText=hitCounter*10
 	   			gameObject.gameArray[inputValue-1] = 2;
-	   			alert("You hit it!");
+	   			//alert("You hit it!");
+	   			document.getElementById(`item-${inputValue}`).innerText = "*";
+	   			document.getElementById(`item-${inputValue}`).style="background-color:#FF0000";
 	   			if (hitCounter === gameObject.minSizeNeeded) {
 	   				alert("You won the game!");
 	   			}
 	   		} else {
-	   			alert("You missed it!");
+	   			//alert("You missed it!");
+	   			document.getElementById(`item-${inputValue}`).innerText = "-";
+	   			document.getElementById(`item-${inputValue}`).style="background-color:#dde740";
 	   		}
 	   		document.getElementById("inptGuess").value="";
 	   		numOfGuesses++;
@@ -152,7 +156,7 @@
 
 	function showArray() {
 		var result = "";
-		for (var i =0; i < gameObject.gameArray.length ; i++) {
+		for (var i =1; i < gameObject.gameArray.length ; i++) {
 			result+=`<div id="item-${i}">0</div>`; 
 		}
 		
